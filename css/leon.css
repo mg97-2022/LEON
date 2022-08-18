@@ -1,0 +1,450 @@
+/* start css variables */
+    :root {
+        --main-color: #10cab7;
+        --secondary-color: #2c4755;
+        --section-color: #f6f6f6;
+        --box-color: #cbcbcb;
+        --section-padding: 60px;
+        --box-text-color: #777;
+        --text-line-height: 1.5;
+        --transtion-duration: .3s;
+    }
+/* end css variables */
+/* start of components */
+.special-heading {
+    color: #ebeced;
+    font-size: 100px;
+    font-weight: 800px;
+    text-align: center;
+    margin: 0;
+    letter-spacing: -3px;
+}
+.special-heading + p {
+    font-size: 18px;
+    margin: -30px 0 0;
+    text-align: center;
+    color: rgb(112, 111, 111);
+}
+/* end of components */
+/* start of global rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+    font-family: "work sans", sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+}
+/* this is used to make all the element aligned */
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* for mobiles */
+@media (max-width: 767px) {
+    .special-heading {
+        font-size: 60px;
+
+    }
+    .special-heading + p {
+        margin: -20px 0 0;
+    }
+}
+/* small screens */
+@media (min-width: 768px) {
+    .cotainer {
+        width: 750px;
+    }
+}
+/* medium screens */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* large screens */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/* end of global rules */
+/* strat of header */
+.header {
+    padding: 20px;
+    background-color: var(--section-color);
+}
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .container .logo {
+    width: 80px;
+}
+.header .container .links {
+    position: relative;
+    /* display: flex; */
+}
+.header .container .icon {
+    width: 30px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    /* flex-wrap: wrap; */ /* instead of flex-direction */
+}
+.header .container .icon span {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    margin-bottom: 5px;
+}
+.header .container .icon span:first-child {
+    width: 100%;
+}
+.header .container .icon span:nth-child(2) {
+    width: 60%;
+    transition-duration: var(--transtion-duration);
+}
+.header .container .icon span:last-child {
+    width: 100%;
+}
+.header .links ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background-color: #ddd;
+    min-width: 200px;
+    position: absolute;
+    right: 0;
+    top:  calc(100% + 15px);
+    display: none;
+    z-index: 1;
+}
+.header .links:hover ul {
+    display: block;
+}
+.header .links ul:before {
+    content: "";
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #ddd transparent;
+    position: absolute;
+    right: 5px;
+    top: -20px;
+}
+.header .links ul li:not(:last-child){
+    border-bottom: 2px solid #ccc;
+}
+.header .links ul a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    padding: 15px;
+    transition-duration: var(--transtion-duration);
+}
+.header .links ul a:hover {
+    padding-left: 30px;
+}
+/* end of header */
+/* start of landing section */
+.landing {
+    background-image: url(../images/photo-1609688669309-fc15db557633.jpeg);
+    background-size: cover;
+    height: calc(100vh - 72px);
+    /* position: relative; */ /* i need the text be in the middle of the screen not the landing */
+}
+.landing .landing-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    width: 300px;
+}
+.landing h1 {
+    font-weight: bold;
+    font-size: 50px;
+    margin: 0;
+    margin-bottom: 100px;
+    color: var(--main-color);
+}
+.landing p {
+    font-size: 19px;
+    line-height: var(--text-line-height);
+}
+/* end of landing section */
+/* start of features */
+.features {
+    background-color: var(--section-color);
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+.features .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+.feat {
+    background-color: var(--box-color);
+    border-radius: 15px;
+    text-align: center;
+}
+.feat i {
+    color: var(--main-color);
+    font-size: 50px;
+    margin-top: 15px;
+}
+.feat h3 {
+    font-size: 30px;
+    font-weight: 800px;
+    margin-top: 10px;
+}
+.feat p {
+    color: var(--box-text-color);
+    font-size: 18px;
+    line-height: var(--text-line-height);
+    padding: 15px;
+}
+/* end of features */
+/* start of services */
+.services {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+.services-content {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+.services-content .serv-column:not(:last-of-type) {
+    display:grid;
+    grid-template-rows: repeat(2, 1fr);
+    align-items: space-between;
+}
+.services-content .serv-column .service {
+    background-color: var(--box-color);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 20px;
+    display: flex;
+}
+.service i {
+    color: var(--main-color);
+    font-size: 40px;
+}
+.service .text {
+    flex: 1;
+}
+.service .text h3 {
+    font-size: 30px;
+    font-weight: 800px;
+    margin: 10px 0 0 15px;
+}
+.service .text p {
+    color: var(--box-text-color);
+    font-size: 18px;
+    line-height: var(--text-line-height);
+    
+}
+.services-content .serv-column:last-of-type {
+    display: flex;
+    align-items: center;
+}
+.serv-column .image .img {
+    width: 100%;
+}
+.serv-column .image {
+    position: relative;
+    width: 300px;
+}
+.serv-column .image:before {
+    content: "";
+    background-color: var(--secondary-color);
+    width: 100px;
+    height: calc(100% + 50px);
+    position: absolute;
+    top: -25px;
+    right: -50px;
+    z-index: -1;
+}
+@media (max-width: 1199px) {
+    .serv-column .image {
+        display: none;
+    }
+    .serv-column .service {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+/* end of services */
+/* start of portofolio */
+.portofolio {
+    background-color: var(--section-color);
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+.portofolio .portofolio-content {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+.portofolio-content .card {
+    background-color: var(--box-color);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+.portofolio-content .card img {
+    width: 100%;
+    height: 50%;
+}
+.portofolio-content .card h3 {
+    font-size: 30px;
+    font-weight: 800px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+.portofolio-content .card p {
+    color: var(--box-text-color);
+    font-size: 18px;
+    line-height: var(--text-line-height);
+}
+/* end of portofolio */
+/* start of about */
+.about {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+.about .about-content {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@media (max-width: 991px) {
+    .about .about-content {
+        flex-direction: column;
+        margin-top: 100px;
+}
+}
+.about-content .image {
+    padding: 0;
+    margin: 0;
+    width: 300px;
+    height: 300px;
+    position: relative;
+}
+.about-content .image img {
+    width: 300px;
+    height: 100%;
+}
+.about-content .image:before {
+    content: "";
+    height: calc(100% + 80px);
+    width: 100px;
+    background-color: #ebeced;
+    position: absolute;
+    top: -40px;
+    left: -50px;
+    z-index: -1;
+}
+.about-content .image:after {
+    content: "";
+    width: 80px;
+    height: 200px;
+    border-left: 80px solid var(--main-color);
+    border-bottom: 80px solid var(--main-color);
+    position: absolute;
+    top: -30px;
+    right: -120px;
+    z-index: -1;
+}
+.about .about-content .text {
+    flex-basis: calc(100% - 600px);
+
+}
+@media (max-width: 991px) {
+    .about .about-content .text {
+        margin-top: 100px;
+        text-align: center;
+    }
+}
+.about .about-content .text p:first-child {
+    font-weight: bold;
+    line-height: 2;
+    margin-bottom: 50px;
+}
+.about .about-content .text hr {
+    width: 50%;
+    display: inline-block;
+    border: 1px solid var(--main-color);
+}
+
+.about .about-content .text p:last-child {
+    margin-top: 50px;
+    color: var(--box-text-color);
+    line-height: 2;
+}
+/* end of about */
+/* start of contact */
+.contact {
+    background-color: var(--section-color);
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+.contact-content {
+    text-align: center;
+}
+.contact-content .label {
+    font-size: 35px;
+    font-weight: bold;
+    color: var(--secondary-color);
+    letter-spacing: -2px;
+    margin: 80px 0 10px;
+}
+.contact-content a {
+    display: block;
+    text-decoration: none;
+    font-size: 35px;
+    font-weight: bold;
+    color: var(--main-color);
+}
+.contact-content .social p {
+    display: inline-block;
+    font-size: 18px;
+    color: var(--secondary-color);
+}
+@media (max-width: 767px) {
+    .contact-content .label,
+    .contact-content a {
+        font-size: 25px;
+    }
+    .contact-content .social p {
+        font-size: 14px;
+    }
+}
+.contact-content .social i {
+    display: inline-block;
+    color: var(--secondary-color);
+    margin-left: 10px;
+}
+/* start of footer */
+.footer {
+    background-color: var(--secondary-color);
+    padding: 20px 10px;
+    text-align: center;
+    color: white;
+}
+.footer span {
+    color: var(--main-color);
+}
+/* end of footer */
